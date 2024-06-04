@@ -6,7 +6,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:20
-WORKDIR /serverside
-COPY --from=build /clustereddatawarehouse/target/Clustereddatawarehouse-0.0.1-SNAPSHOT.jar .
+WORKDIR /clustereddatawarehouse
+COPY --from=build /clustereddatawarehouse/target/clustereddatawarehouse-0.1.jar .
 EXPOSE 8080
-CMD ["java", "-jar", "Clustereddatawarehouse-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "clustereddatawarehouse-0.1.jar"]

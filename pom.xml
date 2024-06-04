@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.med</groupId>
-	<artifactId>ClusteredDataWarehouse</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ClusteredData Warehouse</name>
-	<description>ClusteredData Warehouse</description>
+	<artifactId>clustereddatawarehouse</artifactId>
+	<version>0.1</version>
+	<name>clustereddatawarehouse</name>
+	<description>Clustered Data Warehouse</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -1,5 +1,6 @@
 package org.med.clustereddatawarehouse.controller;
 
+import jakarta.validation.Valid;
 import org.med.clustereddatawarehouse.model.request.FxDealReqDto;
 import org.med.clustereddatawarehouse.service.FxDealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class FxDealController {
     private FxDealService fxDealService;
 
     @PostMapping
-    public ResponseEntity<FxDealReqDto> save(@RequestBody FxDealReqDto fxDeal) {
-       return ResponseEntity.ok(fxDealService.save(fxDeal));
+    public ResponseEntity<FxDealReqDto> save(@Valid @RequestBody FxDealReqDto fxDeal) {
+        return ResponseEntity.ok(fxDealService.save(fxDeal));
     }
 }

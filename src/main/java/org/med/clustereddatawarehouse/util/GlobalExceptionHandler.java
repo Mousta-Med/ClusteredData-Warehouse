@@ -1,6 +1,7 @@
 package org.med.clustereddatawarehouse.util;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.med.clustereddatawarehouse.exception.ResourceAlreadyExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -44,6 +45,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<?> handelException() {
         return ResponseEntity.notFound().build();
+    }
+
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler(ResourceAlreadyExistException.class)
+    public Map<String, String> handleResourceNotFoundException(ResourceAlreadyExistException ex) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error", ex.getMessage());
+        return errors;
     }
 
 }

@@ -1,12 +1,16 @@
 package org.med.clustereddatawarehouse.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +19,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class FxDeal {
 
     @Id
@@ -24,7 +29,7 @@ public class FxDeal {
 
     @Column(nullable = false)
     @NotEmpty(message = "OrderingCurrencyIsoCode must not be empty")
-    @Size( min = 3, message = "Ordering currency iso code should be in 3 character and above.")
+    @Size(min = 3, message = "Ordering currency iso code should be in 3 character and above.")
     private String orderingCurrencyIsoCode;
 
     @Column(nullable = false)

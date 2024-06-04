@@ -22,10 +22,10 @@ public class FxDealServiceImpl implements FxDealService {
 
     @Override
     public FxDealReqDto save(FxDealReqDto request) {
-        if(!fxDealRepository.existsById(request.getId())){
+        if (!fxDealRepository.existsById(request.getId())) {
             return modelMapper.map(fxDealRepository.save(modelMapper.map(request, FxDeal.class)), FxDealReqDto.class);
-        }else {
-            throw new ResourceAlreadyExistException(request.getId());
+        } else {
+            throw new ResourceAlreadyExistException("Deal Already Exist with this id: " + request.getId());
         }
     }
 }

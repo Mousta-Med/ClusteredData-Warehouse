@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ClusteredDataWarehouseApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ClusteredDataWarehouseApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ClusteredDataWarehouseApplication.class, args);
+    }
 
 }

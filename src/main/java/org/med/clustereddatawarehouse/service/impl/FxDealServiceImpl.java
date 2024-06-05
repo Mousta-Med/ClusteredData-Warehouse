@@ -28,7 +28,7 @@ public class FxDealServiceImpl implements FxDealService {
             log.info("Successfully saved deal: {}", request.getId());
             return modelMapper.map(fxDealRepository.save(modelMapper.map(request, FxDeal.class)), FxDealReqDto.class);
         } else {
-            log.warn("Duplicate deal ID: {}", request.getId());
+            log.error("Duplicate deal ID: {}", request.getId());
             throw new ResourceAlreadyExistException("Deal Already Exist with this id: " + request.getId());
         }
     }
